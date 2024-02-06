@@ -11,6 +11,7 @@ export class PrismaUsersRepository implements UserRepository {
   constructor(
     private prismaService: PrismaService
   ){}
+
   async findByEmail(email: string): Promise<User | null> {
     const userPrisma = await this.prismaService.user.findUnique({
       where: {
@@ -24,6 +25,19 @@ export class PrismaUsersRepository implements UserRepository {
     const user = PrismaUserMapper.toUser(userPrisma)
 
     return user
+  }
+
+  async userIsSuperAdmin(userId: string) {
+    const user = await this.prismaService.user.findUnique({
+      where: {
+        id: userId
+      }
+    })
+
+    if(user?.role === 'SUPER_ADMIN'){
+      return true
+    }
+    else return false
   }
   
   delete(): Promise<void> {

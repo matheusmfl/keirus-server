@@ -4,10 +4,18 @@ import { UserRepository } from "../src/app/repositories/user-repository";
 
 export class InMemoryUserRepository implements UserRepository{
 
-
-
-
   public items: User[] = []
+
+  async userIsSuperAdmin(userId: string): Promise<boolean> {
+    const user = this.items.find((user) => user.id === userId)
+
+    if(user?.role === 'SUPER_ADMIN'){
+      return true
+    }
+    else {
+      return false
+    }
+  }
 
   async findByEmail(email: string){
     const user = this.items.find((user) => user.email === email)
