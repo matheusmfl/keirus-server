@@ -1,5 +1,6 @@
 import { User } from "../entities/user"
 import { UserPassword } from "../entities/user-password"
+import { UserRepository } from "../repositories/user-repository"
 
 interface IRegisterUserRequest {
   name: string
@@ -15,7 +16,9 @@ interface IRegisterUserResponse {
 
 
 export class RegisterUser{
-  constructor(){
+  constructor(
+    private userRepository: UserRepository
+  ){
 
   }
   async execute(request: IRegisterUserRequest): Promise<IRegisterUserResponse>{
@@ -24,6 +27,8 @@ export class RegisterUser{
     const user = new User({
       email, name, password: new UserPassword(password), role, created_at
     })
+
+    await this.userRepository.register(user)
 
     return { user }
   }
