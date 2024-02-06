@@ -7,7 +7,7 @@ export class InMemoryUserRepository implements UserRepository{
 
   public items: User[] = []
 
-  async getUsers(): Promise<User[]> {
+  async listUsers(): Promise<User[]> {
     const fakeUser = new User({
       email: 'fake@example.com',
       name: 'fake Name',
