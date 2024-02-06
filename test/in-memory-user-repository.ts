@@ -11,7 +11,7 @@ export class InMemoryUserRepository implements UserRepository{
     const fakeUser = new User({
       email: 'fake@example.com',
       name: 'fake Name',
-      password: new UserPassword('fake Password1@'),
+      password: new UserPassword('fake_Password1@'),
        role: 'SUPER_ADMIN',
        created_at: new Date(),
        last_access: new Date()

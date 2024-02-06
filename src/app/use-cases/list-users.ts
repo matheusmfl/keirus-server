@@ -11,7 +11,7 @@ export class ListUsers{
   }
   async execute(): Promise<User[]>{
 
-    const users = this.userRepository.getUsers()
+    const users = this.userRepository.listUsers()
 
     return  users 
   }
