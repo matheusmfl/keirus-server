@@ -8,7 +8,7 @@ describe('User ', () => {
       email: 'keirus@admin.com',
       name: 'Keirus Admin',
       password: new UserPassword('KeirusAdminPass1@'),
-      role: 'SUPERADMIN',
+      role: 'SUPER_ADMIN',
       last_access: undefined
     })
 

@@ -1,3 +1,4 @@
+import { Injectable } from "@nestjs/common"
 import { User } from "../entities/user"
 import { UserPassword } from "../entities/user-password"
 import { UserRepository } from "../repositories/user-repository"
@@ -7,14 +8,14 @@ interface IRegisterUserRequest {
   email: string
   password: string
   created_at?: Date
-  role: 'USER' | 'ADMIN' | 'SUPERADMIN'
+  role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
 }
 
 interface IRegisterUserResponse {
   user: User
 }
 
-
+@Injectable()
 export class RegisterUser{
   constructor(
     private userRepository: UserRepository

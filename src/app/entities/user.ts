@@ -8,7 +8,7 @@ export interface IUserProps {
   name: string
   created_at: Date
   last_access?: Date | null | undefined
-  role: 'USER' | 'ADMIN' | 'SUPERADMIN'
+  role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
 }
 
 export class User{
@@ -66,7 +66,7 @@ export class User{
     return this.props.last_access
   }
 
-  public set role(role: 'USER' | 'ADMIN' | 'SUPERADMIN'){
+  public set role(role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'){
     this.props.role = role
   }
 

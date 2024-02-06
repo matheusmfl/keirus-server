@@ -1,8 +1,9 @@
-import { IsDate, IsNotEmpty, IsUUID, Length } from "class-validator"
+import { IsDate, IsNotEmpty, IsOptional, IsUUID, Length } from "class-validator"
 
 export class createUserBody{
-  @IsNotEmpty()
+
   @IsUUID()
+  @IsOptional()
   id: string
 
   @IsNotEmpty()
@@ -17,11 +18,13 @@ export class createUserBody{
   name: string
   
   @IsDate()
+  @IsOptional()
   created_at: Date
 
   @IsDate()
+  @IsOptional()
   last_access: Date
   
   @IsNotEmpty()
-  role: 'USER' | 'ADMIN' | 'SUPERADMIN'
+  role: 'USER' | 'ADMIN' | 'SUPER_ADMIN'
 }
