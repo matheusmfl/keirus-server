@@ -1,3 +1,26 @@
+## RFs (Requisitos funcionais) 
+
+- [x] Deve ser possível registrar um usuário
+
+- [] Deve ser possível se autenticar
+
+- [] Deve ser possível deletar um usuário
+
+- [] Deve ser possível atualizar um usuário
+
+- [x] Deve ser possível listar usuários
+
+## RNs (Regras de negócio)
+
+- [] O usuário não pode se cadastrar com e-mail duplicado
+
+- [] O usuário super_admin não pode ser deletado
+
+- [] o usuário super_admin não pode se deletar
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
