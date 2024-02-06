@@ -4,6 +4,7 @@ import { createUserBody } from '../dtos/create-user-body';
 import { ListUsers } from 'src/app/use-cases/list-users';
 import { UserViewModel } from '../view-models/user-view-model';
 
+
 @Controller('users')
 export class UsersController {
   constructor(

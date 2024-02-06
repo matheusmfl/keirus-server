@@ -5,7 +5,22 @@ import { UserRepository } from "../src/app/repositories/user-repository";
 export class InMemoryUserRepository implements UserRepository{
 
 
+
+
   public items: User[] = []
+
+  async findByEmail(email: string){
+    const user = this.items.find((user) => user.email === email)
+
+    if (!user){
+      return null
+    }
+    return user
+  }
+
+  async delete(): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
 
   async listUsers(): Promise<User[]> {
     const fakeUser = new User({

@@ -18,6 +18,8 @@
 
 - [] o usuário super_admin não pode se deletar
 
+- [x] o user não pode ser registrado com password que não contenha símbolos e números, além de possuir menos de 8 caracteres
+
 
 
 
