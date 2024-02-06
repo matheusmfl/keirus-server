@@ -9,6 +9,9 @@ export class PrismaUsersRepository implements UserRepository {
   constructor(
     private prismaService: PrismaService
   ){}
+  getUsers(): Promise<User[]> {
+    throw new Error("Method not implemented.");
+  }
 
   async register(user: User): Promise<void> {
    await this.prismaService.user.create({

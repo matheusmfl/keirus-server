@@ -18,7 +18,7 @@ describe('Register user', () => {
       email: 'keirus@admin.com',
       name: 'Keirus Admin',
       password: 'KeirusAdminPass1@',
-      role: 'SUPERADMIN',
+      role: 'SUPER_ADMIN',
     })
 
     expect(userRepository.items).toHaveLength(1)
