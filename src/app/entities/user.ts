@@ -1,5 +1,6 @@
 import { Replace } from "src/helpers/replace"
 import { UserPassword } from "./user-password"
+import { randomUUID } from "crypto"
 
 export interface IUserProps {
   email: string
@@ -11,12 +12,18 @@ export interface IUserProps {
 }
 
 export class User{
+  private _id: string
   private props: IUserProps
   constructor(props: Replace<IUserProps, {created_at?: Date }> ){
+    this._id = randomUUID()
     this.props = {
       ...props,
       created_at: props.created_at ?? new Date()
     }
+  }
+
+  public get id(){
+    return this._id
   }
 
   public set email(email: string){
