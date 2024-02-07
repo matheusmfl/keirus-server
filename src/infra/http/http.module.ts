@@ -4,6 +4,7 @@ import { RegisterUser } from "src/app/use-cases/register-user";
 import { DatabaseModule } from "../database/database.module";
 import { ListUsers } from "src/app/use-cases/list-users";
 import { UpdateUserUseCase } from "@app/use-cases/update-user";
+import { DeleteUserUseCase } from "@app/use-cases/delete-user";
 
 @Module({
   imports: [DatabaseModule],
@@ -11,7 +12,8 @@ import { UpdateUserUseCase } from "@app/use-cases/update-user";
   providers: [
     RegisterUser,
     ListUsers,
-    UpdateUserUseCase
+    UpdateUserUseCase,
+    DeleteUserUseCase
   ]
 })
 export class HttpModule{}
