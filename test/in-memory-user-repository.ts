@@ -1,10 +1,29 @@
 import { User } from "../src/app/entities/user";
 import { UserPassword } from "../src/app/entities/user-password";
-import { UserRepository } from "../src/app/repositories/user-repository";
+import { IUserUpdateData, UserRepository } from "../src/app/repositories/user-repository";
 
 export class InMemoryUserRepository implements UserRepository{
 
+
   public items: User[] = []
+
+  async update(userId: string, data: IUserUpdateData): Promise<User> {
+    const userIndex = this.items.findIndex(user => user.id === userId)
+
+ 
+    const userUpdated = new User({
+      email: data.email ?? 'updatedEmail@gmail.com',
+      password: new UserPassword('updated-password') ,
+      name: data.name ?? 'User Name Updated', 
+      role: 'ADMIN',
+      id: 'updated-user-id',
+    })
+
+    this.items.splice(userIndex, 1, userUpdated)
+
+    return userUpdated
+   
+  }
 
   async userIsSuperAdmin(userId: string): Promise<boolean> {
     const user = this.items.find((user) => user.id === userId)
