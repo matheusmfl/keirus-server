@@ -1,8 +1,8 @@
 
-import { UserPassword } from "@app/entities/user-password"
+import { UserPassword } from "../entities/user-password"
 import { InMemoryUserRepository } from "../../../test/in-memory-user-repository"
 import {  UpdateUserUseCase } from "./update-user"
-import { User } from "@app/entities/user"
+import { User } from "../entities/user"
 
 describe('Update user UseCase', () => {
   let userRepository: InMemoryUserRepository
@@ -26,7 +26,7 @@ describe('Update user UseCase', () => {
     
     userRepository.items.push(fakeUser)
     
-    const user = updateUserUseCase.execute({
+    const {user} = await updateUserUseCase.execute({
       userId: 'id-generic', 
       data: {
         name: 'Matheus Fonteles'
@@ -34,6 +34,6 @@ describe('Update user UseCase', () => {
     })
 
 
-    expect(userRepository.items).toHaveLength(1)
+    expect(user.name).toEqual('Matheus Fonteles')
   })
 })

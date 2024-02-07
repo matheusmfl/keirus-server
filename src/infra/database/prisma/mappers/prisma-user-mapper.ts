@@ -16,10 +16,11 @@ export class PrismaUserMapper {
 
 
   static toUser(prismaUser: any): User {
-    // Mapear campos do Prisma para o formato esperado por User
+    
     return new User({
+      id: prismaUser.id,
       email: prismaUser.email,
-      password: prismaUser.password, // Certifique-se de lidar com a senha adequadamente, como criar uma instância de UserPassword
+      password: prismaUser.password, 
       name: prismaUser.name,
       created_at: prismaUser.created_at,
       last_access: prismaUser.last_access,

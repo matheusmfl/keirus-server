@@ -5,7 +5,6 @@ export class UserViewModel {
     return {
     id: user.id,
     email: user.email,
-    password: user.password,
     name: user.name,
     role: user.role,
     created_at: user.created_at

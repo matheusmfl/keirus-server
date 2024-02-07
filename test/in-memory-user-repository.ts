@@ -13,7 +13,7 @@ export class InMemoryUserRepository implements UserRepository{
  
     const userUpdated = new User({
       email: data.email ?? 'updatedEmail@gmail.com',
-      password: new UserPassword('updated-password') ,
+      password: new UserPassword('updated-passworD1@') ,
       name: data.name ?? 'User Name Updated', 
       role: 'ADMIN',
       id: 'updated-user-id',
