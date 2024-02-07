@@ -30,4 +30,21 @@ describe('Delete user', () => {
 
     expect(userRepository.items).toHaveLength(0)
   })
+
+  it('should not be able to delete a user when this user is a SUPER_ADMIN', async () => {
+
+    const fakeUser = new User({
+      id: 'id-generic',
+      email: 'keirus@admin.com',
+      name: 'Keirus Admin',
+      password: new UserPassword('KeirusAdminPass1@'),
+      role: 'SUPER_ADMIN',
+    })
+    
+    userRepository.items.push(fakeUser)
+
+    expect(async () => {
+      await deleteUserUseCase.execute({userId: 'id-generic'})
+    }).rejects.toThrow()
+  })
 })
